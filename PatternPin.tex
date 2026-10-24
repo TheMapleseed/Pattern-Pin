@@ -1,0 +1,115 @@
+\documentclass{article}
+
+% Define the grid size
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+
+% Define the shape of the pin
+\newcommand{\pinshape}{
+    [
+        shape=regular polygon,
+        regular polygon sides=6,
+        minimum size=2cm,
+        draw=black,
+        fill=white
+    ]
+}
+
+% Define the symbols used in the pattern
+\newcommand{\symbols}{
+    \{,+,*,#,$,%,^, &, |, (, ), ~, !, @, #, $, %, &, |, +, -, =, <, >, /, :, ;, ,, ., ?, @, \#, \$
+}
+
+% Function to generate a hash from a shape
+\newcommand{\generatehash}{
+    \begin{tikzpicture}
+        \node[pinshape] (pin) {};
+        \coordinate (center) at (pin.center);
+        \foreach \i in {1,...,6} {
+            \pgfmathsetmacro{\angle}{360/\number\numexpr6+\number\numexpr\i-1*\number\numexpr6+\number\numexpr\i-1}
+            \pgfmathsetmacro{\x}{cos(\angle)}
+            \pgfmathsetmacro{\y}{sin(\angle)}
+            \coordinate (point\i) at ($(center) + (\x,\y)$);
+            \node[anchor=center] at (point\i) {$\alpha_{\i}$};
+        }
+    \end{tikzpicture}
+}
+
+% Function to generate a pattern key
+\newcommand{\generatekey}{
+    \begin{tikzpicture}
+        \node[pinshape] (pin) {};
+        \coordinate (center) at (pin.center);
+        \foreach \i in {1,...,6} {
+            \pgfmathsetmacro{\angle}{360/\number\numexpr6+\number\numexpr\i-1*\number\numexpr6+\number\numexpr\i-1}
+            \pgfmathsetmacro{\x}{cos(\angle)}
+            \pgfmathsetmacro{\y}{sin(\angle)}
+            \coordinate (point\i) at ($(center) + (\x,\y)$);
+            \node[anchor=center] at (point\i) {$\sigma_{\i}$};
+        }
+    \end{tikzpicture}
+}
+
+% Function to generate a key value
+\newcommand{\generatekeyValue}{
+    \begin{tikzpicture}
+        \node[pinshape] (pin) {};
+        \coordinate (center) at (pin.center);
+        \foreach \i in {1,...,6} {
+            \pgfmathsetmacro{\angle}{360/\number\numexpr6+\number\numexpr\i-1*\number\numexpr6+\number\numexpr\i-1}
+            \pgfmathsetmacro{\x}{cos(\angle)}
+            \pgfmathsetmacro{\y}{sin(\angle)}
+            \coordinate (point\i) at ($(center) + (\x,\y)$);
+            \node[anchor=center] at (point\i) {$\omega_{\i}$};
+        }
+    \end{tikzpicture}
+}
+
+% Main function to create the pattern pin
+\newcommand{\createpatternpin}{
+    \begin{document}
+        \textbf{Pattern Pin}
+        \begin{tikzpicture}
+            \node[pinshape] (pin) {};
+            \coordinate (center) at (pin.center);
+            \foreach \i in {1,...,6} {
+                \pgfmathsetmacro{\angle}{360/\number\numexpr6+\number\numexpr\i-1*\number\numexpr6+\number\numexpr\i-1}
+                \pgfmathsetmacro{\x}{cos(\angle)}
+                \pgfmathsetmacro{\y}{sin(\angle)}
+                \coordinate (point\i) at ($(center) + (\x,\y)$);
+                \node[anchor=center] at (point\i) {$\mathbb{Z}_{\i}$};
+            }
+        \end{tikzpicture}
+        \newline
+        \textbf{Access Key}
+        \begin{tikzpicture}
+            \node[pinshape] (pin) {};
+            \coordinate (center) at (pin.center);
+            \foreach \i in {1,...,6} {
+                \pgfmathsetmacro{\angle}{360/\number\numexpr6+\number\numexpr\i-1*\number\numexpr6+\number\numexpr\i-1}
+                \pgfmathsetmacro{\x}{cos(\angle)}
+                \pgfmathsetmacro{\y}{sin(\angle)}
+                \coordinate (point\i) at ($(center) + (\x,\y)$);
+                \node[anchor=center] at (point\i) {$\mathbb{A}_{\i}$};
+            }
+        \end{tikzpicture}
+        \newline
+        \textbf{Generated Key}
+        \begin{tikzpicture}
+            \node[pinshape] (pin) {};
+            \coordinate (center) at (pin.center);
+            \foreach \i in {1,...,6} {
+                \pgfmathsetmacro{\angle}{360/\number\numexpr6+\number\numexpr\i-1*\number\numexpr6+\number\numexpr\i-1}
+                \pgfmathsetmacro{\x}{cos(\angle)}
+                \pgfmathsetmacro{\y}{sin(\angle)}
+                \coordinate (point\i) at ($(center) + (\x,\y)$);
+                \node[anchor=center] at (point\i) {$\mathbb{B}_{\i}$};
+            }
+        \end{tikzpicture}
+    \end{document}
+}
+
+% Generate the pattern pin
+\begin{document}
+    \createpatternpin
+\end{document}

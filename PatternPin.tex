@@ -11,7 +11,19 @@
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,positioning}
 
+\usepackage{fancyhdr}
 \usepackage[hidelinks]{hyperref}
+\hypersetup{
+  pdftitle={Pattern Pin},
+  pdfauthor={Mapleseed Inc.}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\small\textcopyright\ 2026 Mapleseed Inc. All rights reserved.}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
 
 \setlist[enumerate]{itemsep=0.35em,topsep=0.4em}
 \setlist[description]{itemsep=0.35em,topsep=0.4em}
@@ -30,8 +42,18 @@
 {\LARGE\bfseries Pattern Pin\par}
 \vspace{0.55em}
 {\large A hybrid of pattern unlock and PIN unlock\par}
-\vspace{0.35em}
-Specification
+\vspace{0.75em}
+{\large Mapleseed Inc.\par}
+\vspace{0.45em}
+Specification\par
+\vspace{0.7em}
+{\small\textcopyright\ 2026 Mapleseed Inc. All rights reserved.\par}
+\vspace{0.45em}
+\begin{minipage}{0.92\textwidth}
+\small
+This specification is the property of Mapleseed Inc.
+No license is granted to use, implement, reproduce, modify, or distribute it, in whole or in part, without prior written permission from Mapleseed Inc.
+\end{minipage}
 \end{center}
 
 \begin{abstract}
